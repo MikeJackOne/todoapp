@@ -62,7 +62,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get('https://todobackend-40iq9aezp-mikejackone.vercel.app/todos');
+      const response = await axios.get('/todos');
       this.todos = response.data;
     } catch (error) {
       console.error('There was an error!', error);

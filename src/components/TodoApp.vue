@@ -62,7 +62,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get('http://localhost:5000/todos');
+      const response = await axios.get('https://todobackend-40iq9aezp-mikejackone.vercel.app/todos');
       this.todos = response.data;
     } catch (error) {
       console.error('There was an error!', error);
@@ -72,7 +72,7 @@ export default {
     async addTodo() {
       if (this.newTodo.trim() === '') return;
       try {
-        const response = await axios.post('http://localhost:5000/todos', {
+        const response = await axios.post('https://todobackend-40iq9aezp-mikejackone.vercel.app/todos', {
           text: this.newTodo,
           completed: false,
         });
@@ -84,7 +84,7 @@ export default {
     },
     async deleteTodo(index, id) {
       try {
-        await axios.delete(`http://localhost:5000/todos/${id}`);
+        await axios.delete(`https://todobackend-40iq9aezp-mikejackone.vercel.app/todos/${id}`);
         this.todos.splice(index, 1);
       } catch (error) {
         console.error('There was an error!', error);
@@ -92,7 +92,7 @@ export default {
     },
     async toggleCompletion(todo) {
       try {
-        await axios.put(`http://localhost:5000/todos/${todo.id}`, {
+        await axios.put(`https://todobackend-40iq9aezp-mikejackone.vercel.app/todos/${todo.id}`, {
           text: todo.text,
           completed: todo.completed,
         });
